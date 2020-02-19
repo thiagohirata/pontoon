@@ -215,7 +215,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'NAME': 'allauth',
-        'APP_DIRS': True,
+        'DIRS': [
+            path('allauth/templates'),
+        ],
         'OPTIONS': {
             'context_processors': CONTEXT_PROCESSORS,
         },
