@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.fxa',
+    'allauth.socialaccount.providers.openid',
     'notifications',
     'graphene_django',
     'webpack_loader',
@@ -817,10 +818,18 @@ FXA_SCOPE = ['profile:uid', 'profile:display_name', 'profile:email']
 
 # All settings related to the AllAuth
 SOCIALACCOUNT_PROVIDERS = {
-    'fxa': {
-        'SCOPE': FXA_SCOPE,
-        'OAUTH_ENDPOINT': FXA_OAUTH_ENDPOINT,
-        'PROFILE_ENDPOINT': FXA_PROFILE_ENDPOINT,
+    # 'fxa': {
+    #     'SCOPE': FXA_SCOPE,
+    #     'OAUTH_ENDPOINT': FXA_OAUTH_ENDPOINT,
+    #     'PROFILE_ENDPOINT': FXA_PROFILE_ENDPOINT,
+    # },
+    'openid': {
+        'SERVERS': [
+            dict(id='niara',
+                name='Niara',
+                openid_url='https://spear-niara.auth.us-east-1.amazoncognito.com/oauth2/userInfo')
+        ]
+        # 'DOMAIN': 'https://spear-niara.auth.us-east-1.amazoncognito.com',
     }
 }
 
