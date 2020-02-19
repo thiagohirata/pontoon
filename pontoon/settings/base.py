@@ -214,6 +214,14 @@ TEMPLATES = [
     },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'NAME': 'allauth',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': CONTEXT_PROCESSORS,
+        },
+    },
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             path('pontoon/base/templates/django'),
             os.path.join(FRONTEND_DIR, 'build'),

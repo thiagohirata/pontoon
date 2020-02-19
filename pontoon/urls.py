@@ -63,6 +63,7 @@ urlpatterns = [
 
     # Accounts
     url(r'^accounts/', include('pontoon.allauth_urls')),
+    url(r'^allauth/', include('allauth.urls')),
 
     # Admin
     url(r'^admin/', include('pontoon.administration.urls')),
